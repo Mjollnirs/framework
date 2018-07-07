@@ -501,7 +501,10 @@ class UrlGenerator implements UrlGeneratorContract
             $path = call_user_func($this->formatPathUsing, $path);
         }
 
-        return trim($root.$path, '/');
+        if (strlen($path) == 1 && $path == "/")
+            return $root.$path;
+        else
+            return trim($root.$path, '/');
     }
 
     /**
