@@ -86,7 +86,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     public function root()
     {
-        return rtrim($this->getSchemeAndHttpHost().$this->getBaseUrl(), '/');
+        return rtrim($this->getSchemeAndHttpHost().$this->getForwardedPrefix().$this->getBaseUrl(), '/');
     }
 
     /**
